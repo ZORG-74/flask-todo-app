@@ -1,5 +1,11 @@
 # -*- coding: utf-8 -*-
 
+import sys
+import os
+
+# Добавляем корень проекта в пути поиска
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
 from flask import Flask
 from controllers import blueprints
 from configs import config
