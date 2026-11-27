@@ -25,15 +25,16 @@ jobs:
         pip install -r requirements.txt
 
     - name: Initialize SQLite Database
-      working-directory: ./
+      env:
+        PYTHONPATH: ${{ github.workspace }}
       run: |
-        # Запускаем через -m, чтобы корень проекта был в sys.path
-        python -m manage db upgrade
+        python manage.py db upgrade
 
     - name: Smoke test Flask server
-      working-directory: ./
+      env:
+        PYTHONPATH: ${{ github.workspace }}
       run: |
-        python -m manage runserver -h 127.0.0.1 -p 7345 &
+        python manage.py runserver -h 127.0.0.1 -p 7345 &
         SERVER_PID=$!
         sleep 5
         curl -f http://127.0.0.1:7345/ || exit 1
