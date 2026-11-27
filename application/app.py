@@ -3,8 +3,10 @@
 import sys
 import os
 
-# Добавляем корень проекта в пути поиска
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+# Жестко вычисляем абсолютный путь к корню проекта (на две папки выше)
+project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
+if project_root not in sys.path:
+    sys.path.insert(0, project_root)
 
 from flask import Flask
 from controllers import blueprints
