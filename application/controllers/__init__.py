@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from .todo import todo as todo_blueprint
+from .todo import todo_bp
 
 blueprints = [
-    todo_blueprint
+    todo_bp
 ]
