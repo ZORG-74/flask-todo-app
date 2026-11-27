@@ -3,10 +3,10 @@
 import sys
 import os
 
-# Жестко вычисляем абсолютный путь к корню проекта (на две папки выше)
-project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
-if project_root not in sys.path:
-    sys.path.insert(0, project_root)
+# Добавляем в пути папку, где лежит сам этот файл (то есть папку application)
+current_dir = os.path.dirname(os.path.abspath(__file__))
+if current_dir not in sys.path:
+    sys.path.insert(0, current_dir)
 
 from flask import Flask
 from controllers import blueprints
