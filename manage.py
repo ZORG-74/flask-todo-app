@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
-
+import sys
+import os
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from application import create_app
 from application.extensions import db
 from flask_script import Manager, Server
